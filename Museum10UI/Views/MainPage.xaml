@@ -1,0 +1,117 @@
+﻿<Page x:Class="Museum10UI.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Museum10UI.Views"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      DataContext="{Binding MainPageViewModel, 
+                    Source={StaticResource ViewModelLocator}}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage"
+      Background="White">
+
+    <TabControl materialDesign:ColorZoneAssist.Foreground="Black">
+        <TabItem Header="Employee">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Просмотр сотрудников музея"
+                           HorizontalAlignment="Center"
+                           TextWrapping="Wrap"
+                           FontSize="32"
+                           Margin="0 0 0 20"/>
+                <Button Grid.Row="1"
+                        Command="{Binding EditEmployeeCommand}"
+                        Content="Добавить сотрудника"/>
+                <TextBlock Grid.Row="2"
+                           Text="Для редактирования сотрудника нажмите на него"
+                           FontSize="16"/>
+                <ListView Grid.Row="3"
+                          ItemsSource="{Binding ItemSourse}"
+                          SelectedItem="{Binding SelectedEmployee}">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0"
+                                           Text="{Binding Code}"/>
+                                <TextBlock Grid.Row="1"
+                                           Text="{Binding FullName}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Exhibits">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Просмотр экспонатов музея"
+                           HorizontalAlignment="Center"
+                           TextWrapping="Wrap"
+                           FontSize="32"
+                           Margin="0 0 0 20"/>
+                <Button Grid.Row="1"
+                        Command="{Binding EditExhibitsCommand}"
+                        Content="Добавить экспонат"/>
+                <TextBlock Grid.Row="2"
+                           Text="Для редактирования экспоната нажмите на него"
+                           FontSize="16"/>
+                <ListView Grid.Row="3"
+                          ItemsSource="{Binding ItemExhibitsSourse}"
+                          SelectedItem="{Binding SelectedExhibits}">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0"
+                                           Text="{Binding Id}"/>
+                                <TextBlock Grid.Row="1"
+                                           Text="{Binding Name}"/>
+                                <TextBlock Grid.Row="2"
+                                           Text="{Binding DateReceipt}"/>
+                                <TextBlock Grid.Row="3"
+                                           Text="{Binding Status}"/>
+                                <TextBlock Grid.Row="4"
+                                           Text="{Binding Place}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Page>

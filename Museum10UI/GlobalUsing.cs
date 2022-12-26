@@ -1,0 +1,16 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;
+global using System.Windows.Controls;
+global using Microsoft.Extensions.DependencyInjection;
+global using DevExpress.Mvvm;
+global using Museum10UI.Services;
+global using Museum10UI.Views;
+global using System.Diagnostics;
+global using Museum10UI.Models;
+global using Museum10UI.Assets;
+global using System.Windows;
+global using Newtonsoft.Json;
+global using System.IO;
